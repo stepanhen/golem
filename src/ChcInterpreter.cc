@@ -7,6 +7,7 @@
 #include "ChcInterpreter.h"
 #include "Normalizer.h"
 #include "Validator.h"
+#include "engine/PDKind.h"
 #include "graph/ChcGraph.h"
 #include "graph/ChcGraphBuilder.h"
 #include "proofs/Term.h"
@@ -596,6 +597,8 @@ std::unique_ptr<Engine> ChcInterpreterContext::getEngine(std::string const & eng
         return std::unique_ptr<Engine>(new Kind(logic, opts));
     } else if (engineStr == "imc") {
         return std::unique_ptr<Engine>(new IMC(logic, opts));
+    } else if (engineStr == "pdkind") {
+        return std::unique_ptr<Engine>(new PDKind(logic, opts));
     } else {
         throw std::invalid_argument("Unknown engine specified");
     }

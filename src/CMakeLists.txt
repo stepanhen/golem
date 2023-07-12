@@ -24,7 +24,8 @@ else(OpenSMT_FOUND)
     add_library(OpenSMT::OpenSMT ALIAS OpenSMT-static)
 endif(OpenSMT_FOUND)
 
-add_library(golem_lib OBJECT "")
+add_library(golem_lib OBJECT ""
+)
 
 target_link_libraries(golem_lib PUBLIC OpenSMT::OpenSMT)
 
@@ -38,6 +39,7 @@ target_sources(golem_lib
     PRIVATE engine/Spacer.cc
     PRIVATE engine/TPA.cc
     PRIVATE engine/IMC.cc
+    PRIVATE engine/PDKind.cc
     PRIVATE TransitionSystem.cc
     PRIVATE Options.cc
     PRIVATE TermUtils.cc
